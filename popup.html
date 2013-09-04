@@ -16,7 +16,7 @@
 			var xml_doc = $.parseXML(feed_data);
 			$xml = $(xml_doc);
 			var items = $xml.find("item");
-			$('#popup').html('<img src="images/logo.png" id="logo" onclick="open_item(\'http://lifehacker.com/\'); window.close();" /><br clear="all" />');
+			$('#popup').html('<img src="http://techattention.com/files/brain-icon.png" id="logo" onclick="open_item(\'http://lifehacker.com/\'); window.close();" /><br clear="all" />');
 			items.each(function(index, element) {
 				var post = parse_post(element);
 				var item = '';
