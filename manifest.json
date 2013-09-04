@@ -1,10 +1,19 @@
 {
-  "name": "Hello World!",
+  "name": "SageMob Extension",
   "manifest_version": 2,
   "version": "2.0",
-  "description": "My first Chrome extension.",
+  "description": "Learn new skills and share the latest resources.",
+  "icons": { "16" : "images/icon.png",
+ 			"48" : "images/48.png",
+			"128" : "images/128.png"},
+  "homepage_url": "http://lifehacker.com/",
+  "background": "background.html",
+  "permissions": [
+	  "http://feeds.gawker.com/*"
+	],
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_icon": "images/icon.png", 
+    "default_title": "Lifehacker Notifier",      
+    "default_popup": "popup.html"       
   }
 }
