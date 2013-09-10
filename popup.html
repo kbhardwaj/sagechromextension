@@ -1,58 +1,32 @@
 <html>
 <head>
+	<style>
+      body {
+        min-width: 357px;
+        overflow-x: hidden;
+        height: 600px;
+      }
+
+      h1 {
+        margin: 5px;
+        border: 2px solid black;
+        vertical-align: middle;
+        width: 75px;
+        height: 75px;
+      }
+    </style>
 	<script src='scripts/jquery-1.6.1.min.js'></script>
 	<script src="scripts/parse.js"></script>
-	<script>
-		
-		function fetch_feed() {
-			chrome.extension.sendRequest({'action' : 'fetch_feed', 'url' : 'http://feeds.gawker.com/lifehacker/full'}, 
-				function(response) {
-					display_stories(response);
-				}
-			);
-		}
-		
-		function display_stories(feed_data) {
-			var xml_doc = $.parseXML(feed_data);
-			$xml = $(xml_doc);
-			var items = $xml.find("item");
-			$('#popup').html('<img src="http://techattention.com/files/brain-icon.png" id="logo" onclick="open_item(\'http://lifehacker.com/\'); window.close();" /><br clear="all" />');
-			items.each(function(index, element) {
-				var post = parse_post(element);
-				var item = '';
-				var class2 = '';
-				if (index >= localStorage['unread_count']) {
-					// // console.log('visited');
-					item += '<div class="post read">';
-				}
-				else {
-					item += '<div class="post">'
-				}
-				item += '<span class="tag">' + post.tag + '</span>\
-							<a href="' + post.url + '">\
-								<div id="' + post.id + '" class="item" onclick="open_item(\'' + post.url + '\');">\
-									<img src="' + post.img + '" width="107" height="60" />\
-									<h4>' + post.title + '</h4>\
-									<span class="description">' + post.description + '...</span>\
-								</div>\
-							</a>';
-				item += '</div>';
-				$('#popup').append(item);
-			});
-		}
-		
-	</script>
-	<link rel="stylesheet" href="styles/post.css" type="text/css" />
+	<script src="popup.js"></script>
+	
+
+	
 </head>
 <body>
-	<h2>Hello World</h2>
+	
 	<div id="popup">
 		
 	</div>
-	<script>
-		$(document).ready(function() {
-			fetch_feed();
-		});
-	</script>
+	
 </body>
 </html>

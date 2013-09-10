@@ -1,19 +1,24 @@
 {
-  "name": "SageMob Extension",
+  
   "manifest_version": 2,
-  "version": "2.0",
+  
+  "name": "SageMob Extension",
+  "version": "1.0",
   "description": "Learn new skills and share the latest resources.",
+  
   "icons": { "16" : "images/brain-icon.png",
  			"48" : "images/48.png",
 			"128" : "images/128.png"},
-  "homepage_url": "http://lifehacker.com/",
-  "background": "background.html",
+  
   "permissions": [
-	  "http://feeds.gawker.com/*"
+	  "http://localhost:3000/api/v1/notebooks.json/",
+	  "http://localhost:3000/api/v1/tokens.json/",
+	  "http://localhost:3000/*"
+
 	],
+
   "browser_action": {
-    "default_icon": "images/brain-icon.png", 
-    "default_title": "Lifehacker Notifier",      
+    "default_icon": "images/brain-icon.png",     
     "default_popup": "popup.html"       
   }
 }
